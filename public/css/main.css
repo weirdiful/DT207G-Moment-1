@@ -1,0 +1,12 @@
+body {
+    background-color: aliceblue;
+    margin: 0;
+}
+
+header {
+    background-color: aquamarine;
+}
+
+.current {
+  background-color: blue;  
+}
