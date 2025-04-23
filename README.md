@@ -15,7 +15,7 @@ En webbapplikation för att lagra och visa kurser med hjälp av Node.js, Express
 - Node.js
 - Express
 - MySQL
-- EJS (templating engine)
+- EJS 
 - HTML, CSS
 
 ## Kom igång
