@@ -3,8 +3,8 @@ USE cv;
 
 CREATE TABLE IF NOT EXISTS courses (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    coursecode VARCHAR(10) NOT NULL,
-    coursename VARCHAR(100) NOT NULL,
+    coursecode VARCHAR(20) NOT NULL,
+    coursename VARCHAR(255) NOT NULL,
     syllabus TEXT NOT NULL,
     progression CHAR(1) NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
