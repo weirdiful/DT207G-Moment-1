@@ -59,6 +59,8 @@ form {
   width: 100%;
   max-width: 500px;
   font-size: 1.2rem;
+  font-weight: bold;
+  justify-content: center;
 }
 
 form input, form select {
