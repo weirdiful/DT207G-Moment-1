@@ -1,12 +1,80 @@
+
 body {
-    background-color: aliceblue;
-    margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 0;
+  padding: 0;
+  background-color: #cee8fe;
 }
 
 header {
-    background-color: aquamarine;
+  background-color: #FFAFCC;
+  color: #39005A;
+  padding: 1rem;
+}
+
+header h1 {
+  margin: 0;
 }
 
 .current {
-  background-color: blue;  
+  background-color: #FFC8DD;
+  padding: 3px;  
+  border-radius: 5px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  font-weight: bold;
+  font-size: 1.7rem;
+  margin-right: 1rem;
+}
+
+nav ul li a {
+  color: #39005A;
+  text-decoration: none;
+}
+
+main {
+  padding: 2rem;
+}
+
+form input, form select {
+  display: block;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+input[type="submit"] {
+  background-color: #A2D2FF;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+}
+
+table, th, td {
+  border: 1px solid #ccc;
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.error {
+  color: red;
 }

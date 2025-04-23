@@ -1,0 +1,11 @@
+CREATE DATABASE IF NOT EXISTS cv;
+USE cv;
+
+CREATE TABLE IF NOT EXISTS courses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    coursecode VARCHAR(10) NOT NULL,
+    coursename VARCHAR(100) NOT NULL,
+    syllabus TEXT NOT NULL,
+    progression CHAR(1) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
