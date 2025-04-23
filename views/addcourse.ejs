@@ -25,18 +25,26 @@
 <main>
     <div> Lägg till kurser</div>
 
+    <% if (error.length > 0) { %>
+        <ul class="error">
+            <% error.forEach(e => { %>
+                <li><%= e %></li>
+            <% }) %>
+        </ul>
+    <% } %>
+
    <!-- Kurskod, kursnamn, kursplan, kursprogression  -->
     <form method="post">
-        <label for="course-code">Kurskod</label>
+        <label>Kurskod</label>
         <input type="text" id="courseCode" name="courseCode">
         <br>
-        <label for="course-name">Kursnamn</label>
+        <label>Kursnamn</label>
         <input type="text" id="courseName" name="courseName">
         <br>
-        <label for="course-syllabus">Kursplan</label>
+        <label>Kursplan</label>
         <input type="text" id="courseSyllabus" name="courseSyllabus">
         <br>
-        <label for="course-progression">Kursprogression</label>
+        <label>Kursprogression</label>
         <select id="courseProgression" name="courseProgression">
             <option value="A">A</option>
             <option value="B">B</option>
