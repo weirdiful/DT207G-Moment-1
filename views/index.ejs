@@ -21,10 +21,34 @@
         </div>
     </header>
 
-    <h1>Test</h1>
+    <main>
+    <h2>Kurser</h2>
+    <% if (error) { %><p><%= error %></p><% } %>
 
+    <table>
+        <thead>
+            <tr>
+                <th>Kurskod</th>
+                <th>Kursnamn</th>
+                <th>Kursplan</th>
+                <th>Progression</th>
+                <th>Ta bort</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% courses.forEach(course => { %>
+                <tr>
+                    <td><%= course.coursecode %></td>
+                    <td><%= course.coursename %></td>
+                    <td><a href="<%= course.syllabus %>" target="_blank">Länk</a></td>
+                    <td><%= course.progression %></td>
+                    <td><a href="/delete/<%= course.id %>" onclick="return confirm('Är du säker?')">🗑️</a></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</main>
 
-    <div> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores pariatur aliquid perspiciatis rerum adipisci delectus beatae. Iure, optio voluptate nemo qui incidunt, sint eligendi aliquam esse vero fugit ratione commodi?</div>
     
 </body>
 </html>
