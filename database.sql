@@ -1,11 +1,12 @@
-CREATE DATABASE IF NOT EXISTS cv;
-USE cv;
-
-CREATE TABLE IF NOT EXISTS courses (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    coursecode VARCHAR(20) NOT NULL,
-    coursename VARCHAR(255) NOT NULL,
+const createTableSQL = `
+  CREATE TABLE IF NOT EXISTS courses (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    coursecode TEXT NOT NULL,
+    coursename TEXT NOT NULL,
     syllabus TEXT NOT NULL,
-    progression CHAR(1) NOT NULL,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-);
+    progression TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  );
+`;
+
+db.run(createTableSQL);

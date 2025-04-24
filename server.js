@@ -9,12 +9,9 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true }));
 
-const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "cv"
-});
+const sqlite3 = require("sqlite3").verbose();
+const db = new sqlite3.Database('./cv.db');
+
 
 connection.connect((err) => {
     if (err) {
@@ -28,7 +25,7 @@ connection.connect((err) => {
 //Startsida/Visa kurser
 app.get("/", (req, res) => {
     const sql = "SELECT * FROM courses ORDER BY created_at DESC";
-    connection.query(sql, (err, results) => {
+    db.all(sql, (err, results) => {
         if (err) {
             console.error("Fel vid hämtning av kurser", err);
             return res.render("index", {courses: [], error: "Fel vid hämtning av kurser"});
@@ -58,7 +55,7 @@ app.post("/addcourse", (req, res) => {
         res.render("addcourse", { error: errors });
     } else {
         const sql = "INSERT INTO courses (coursecode, coursename, syllabus, progression) VALUES (?, ?, ?, ?)";
-        connection.query(sql, [courseCode, courseName, courseSyllabus, courseProgression], (err) => {
+        db.run(sql, [courseCode, courseName, courseSyllabus, courseProgression], (err) => {
             if (err) {
                 console.error("Kunde inte spara kursen i databasen.", err);
                 return res.render("addcourse", { error: ["Fel vid sparning till databasen"] });
