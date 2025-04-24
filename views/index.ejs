@@ -41,7 +41,7 @@
                     <td><%= course.coursename %></td>
                     <td><a href="<%= course.syllabus %>" target="_blank">Länk</a></td>
                     <td><%= course.progression %></td>
-                    <td><a href="/delete/<%= course.id %>" onclick="return confirm('Är du säker?')">🗑️</a></td>
+                    <td><a href="/delete/<%= course.id %>" class="delete-btn" onclick="return confirm('Är du säker?')">X</a></td>
                 </tr>
             <% }) %>
         </tbody>

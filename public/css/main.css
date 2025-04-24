@@ -92,16 +92,54 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 2rem;
+  background-color: #edf4fa;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-table, th, td {
-  border: 1px solid #ccc;
+th {
+  background-color: #A2D2FF;
+  color: #39005A;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+td {
+  font-size: 1rem;
+}
+
+tr:nth-child(even) {
+  background-color: #daebfb;
 }
 
 th, td {
   padding: 0.75rem;
   text-align: left;
 }
+
+table, th, td {
+  border: 2px solid #A2D2FF;
+}
+
+a.delete-btn {
+  background-color: #FFAFCC;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+}
+
+a.delete-btn:hover {
+  background-color: #fd85b1;
+}
+
+
 
 .error {
   color: red;

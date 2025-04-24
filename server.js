@@ -1,7 +1,5 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const mysql = require("mysql");
-
 const app = express();
 const port = 3000; 
 
@@ -9,17 +7,31 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true }));
 
+
 const sqlite3 = require("sqlite3").verbose();
-const db = new sqlite3.Database('./cv.db');
+const db = new sqlite3.Database("./courses.db", (err) => {
+  if (err) {
+    console.error("Anslutning misslyckades: " + err.message);
+  } else {
+    console.log("Connected to SQLite database.");
 
-
-connection.connect((err) => {
-    if (err) {
-        console.error("Connection failed: " + err);
-        return;
-    }
-    console.log("connected to MySQL!");
+    db.run(`CREATE TABLE IF NOT EXISTS courses (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      coursecode TEXT NOT NULL,
+      coursename TEXT NOT NULL,
+      syllabus TEXT NOT NULL,
+      progression TEXT NOT NULL,
+      created_at TEXT DEFAULT CURRENT_TIMESTAMP
+    )`, (err) => {
+      if (err) {
+        console.error("Could not create table:", err.message);
+      } else {
+        console.log("Ansluten till SQLite");
+      }
+    });
+  }
 });
+
 
   
 //Startsida/Visa kurser
@@ -69,12 +81,16 @@ app.post("/addcourse", (req, res) => {
 //Radera kurs
 
 app.get("/delete/:id", (req, res) => {
-    const sql = "DELETE FROM courses WHERE id = ?";
-    connection.query(sql, [req.params.id], (err) => {
-        if (err) console.error(err);
+    const sql = "DELETE FROM courses WHERE id = ?";  
+    db.run(sql, [req.params.id], function(err) {
+        if (err) {
+            console.error("Fel vid borttagning av kurs:", err);
+            return res.status(500).send('Kunde inte ta bort kursen');
+        }
         res.redirect("/");
     });
 });
+
 
 //About
 app.get("/about", (req, res) => {
