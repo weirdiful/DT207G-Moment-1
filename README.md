@@ -1,6 +1,6 @@
 # DT207G – Kursdatabas
 
-En webbapplikation för att lagra och visa kurser med hjälp av Node.js, Express och MySQL.
+En webbapplikation för att lagra och visa kurser med hjälp av Node.js, Express och SQLite.
 
 ## Funktioner
 
@@ -14,23 +14,8 @@ En webbapplikation för att lagra och visa kurser med hjälp av Node.js, Express
 
 - Node.js
 - Express
-- MySQL
 - EJS 
 - HTML, CSS
-
-## Kom igång
-
-1. Klona repo
-2. Skapa databas:
-    ```bash
-    mysql -u root < database.sql
-    ```
-3. Kör applikationen:
-    ```bash
-    node server.js
-    ```
-
-## ER-Diagram
 
 
 ## Skapad av
